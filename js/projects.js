@@ -1,114 +1,60 @@
 /* ================================================================
    PROJECTS.JS — Datos de proyectos
-   Federico Ariel Casado · 2025
+   Federico Ariel Casado · 2026
 
    ¿CÓMO AÑADIR UN PROYECTO?
    ──────────────────────────
-   1. Copiar el bloque de plantilla del final del archivo
-   2. Pegarlo dentro del array PROJECTS (antes del cierre de `]`)
-   3. Completar los campos
-   4. Subir la imagen a la carpeta assets/img/
-   5. Guardar y subir a GitHub
+   1. Copiar el bloque de PLANTILLA al final del archivo
+   2. Pegarlo dentro del array PROJECTS (antes del cierre `]`)
+   3. Completar todos los campos
+   4. Subir las imágenes a assets/img/
+   5. Guardar y recargar la página
 
    CAMPOS:
-     title        → Nombre visible del proyecto
-     category     → Array con una o más categorías:
-                    "python" | "autocad" | "revit" | "data"
-     tags         → Array de strings mostrados como chips en la tarjeta
-     description  → Descripción corta (2-3 oraciones)
-     image        → Ruta relativa a la imagen (ej: "assets/img/p01.jpg")
-                    Dejar "" para mostrar placeholder con textura
-     link         → URL del repo/demo (ej: "https://github.com/...")
-                    Poner "" si no tiene enlace todavía
-     linkLabel    → Texto del botón principal (ej: "Ver GitHub", "Ver demo")
-     linkAlt      → URL secundaria opcional (ej: demo además de GitHub)
-     linkAltLabel → Texto del botón secundario
+     title           → Nombre visible del proyecto
+     category        → Array con categorías: "python" | "autocad" | "revit" | "data"
+     tags            → Chips mostrados en la tarjeta y en el modal
+     description     → Texto corto para la tarjeta (2-3 oraciones)
+     descriptionFull → Texto largo para el modal (separá párrafos con \n\n)
+                       Si está vacío, el modal muestra `description`
+     image           → Imagen principal de la tarjeta (ej: "assets/img/p01.jpg")
+                       Dejar "" para placeholder
+     images          → Array de capturas para la galería del modal
+                       Si está vacío, usa `image` como única foto
+                       Ej: ["assets/img/p01a.jpg", "assets/img/p01b.jpg"]
+     link            → URL principal (GitHub, demo, etc.) — dejar "" si no aplica
+     linkLabel       → Texto del botón principal
+     linkAlt         → URL secundaria opcional
+     linkAltLabel    → Texto del botón secundario
 ================================================================ */
 
 const PROJECTS = [
 
-  /* ────────────────────────────────────────────────────────────
-     PROYECTO 1 — Python
-  ──────────────────────────────────────────────────────────── */
-  {
-    title: "Automatización de Reportes SAP2000",
-    category: ["python"],
-    tags: ["Python", "Pandas", "ReportLab", "SAP2000"],
-    description:
-      "Script que lee archivos de salida de SAP2000, procesa los datos de esfuerzos y genera reportes PDF con tablas y gráficos automáticamente. Redujo el tiempo de documentación en un 60%.",
-    image: "",                          // 👈 reemplazar: "assets/img/p01.jpg"
-    link: "",                           // 👈 reemplazar con URL de GitHub
-    linkLabel: "Ver GitHub",
-    linkAlt: "",
-    linkAltLabel: ""
-  },
-
-  /* ────────────────────────────────────────────────────────────
-     PROYECTO 2 — Revit / BIM
-  ──────────────────────────────────────────────────────────── */
-  {
-    title: "Familia Revit — Viga Cajón Paramétrica",
-    category: ["revit"],
-    tags: ["Revit", "Dynamo", "Python", "BIM"],
-    description:
-      "Familia paramétrica de viga cajón de acero para Revit con control de dimensiones, material y refuerzos desde una tabla Excel externa via Dynamo. Facilita el ajuste rápido de secciones en diseño.",
-    image: "",                          // 👈 reemplazar: "assets/img/p02.jpg"
-    link: "",
-    linkLabel: "Ver proyecto",
-    linkAlt: "",
-    linkAltLabel: ""
-  },
-
-  /* ────────────────────────────────────────────────────────────
-     PROYECTO 3 — Data + Python
-  ──────────────────────────────────────────────────────────── */
-  {
-    title: "Dashboard de Monitoreo Estructural",
-    category: ["data", "python"],
-    tags: ["Power BI", "Python", "SQL", "DAX"],
-    description:
-      "Dashboard interactivo para monitoreo de deformaciones en tiempo real de estructuras instrumentadas. Integra datos de sensores vía SQL con visualizaciones dinámicas en Power BI.",
-    image: "",                          // 👈 reemplazar: "assets/img/p03.jpg"
-    link: "",
-    linkLabel: "Ver demo",
-    linkAlt: "",
-    linkAltLabel: ""
-  },
-
-  /* ────────────────────────────────────────────────────────────
-     PROYECTO 4 — AutoCAD
-  ──────────────────────────────────────────────────────────── */
-  {
-    title: "Planos Estructurales — Edificio Residencial",
-    category: ["autocad"],
-    tags: ["AutoCAD", "Civil 3D", "Detallado estructural"],
-    description:
-      "Juego completo de planos estructurales para edificio de 8 pisos. Incluye fundaciones, losas, vigas, columnas y detalles constructivos conforme a normas CIRSOC.",
-    image: "",                          // 👈 reemplazar: "assets/img/p04.jpg"
-    link: "",
-    linkLabel: "Ver galería",
-    linkAlt: "",
-    linkAltLabel: ""
-  },
-
   /* ════════════════════════════════════════════════════════════
-     ✦ PLANTILLA PARA NUEVO PROYECTO
-     Copiar este bloque completo, pegar arriba del cierre `]`
-     y completar todos los campos.
-  ════════════════════════════════════════════════════════════
+     ✦ PLANTILLA — copiar este bloque completo para añadir un proyecto
 
   {
     title: "Nombre del proyecto",
-    category: ["python"],               // opciones: "python" | "autocad" | "revit" | "data"
+    category: ["python"],             // opciones: "python" | "autocad" | "revit" | "data"
     tags: ["Tag1", "Tag2", "Tag3"],
     description:
-      "Descripción breve del proyecto. Qué problema resuelve, qué tecnologías usaste, "
-      + "y cuál fue el resultado o impacto.",
-    image: "assets/img/nombre-imagen.jpg",
+      "Descripción breve que aparece en la tarjeta. "
+      + "2 o 3 oraciones que resuman el proyecto.",
+    descriptionFull:
+      "Primer párrafo con más detalle sobre el proyecto. "
+      + "Podés extenderte todo lo que necesites.\n\n"
+      + "Segundo párrafo: tecnologías utilizadas, metodología, resultados obtenidos.\n\n"
+      + "Tercer párrafo: impacto, aprendizajes, próximos pasos.",
+    image: "assets/img/nombre-portada.jpg",
+    images: [
+      "assets/img/nombre-01.jpg",
+      "assets/img/nombre-02.jpg",
+      "assets/img/nombre-03.jpg",
+    ],
     link: "https://github.com/federicoarielcasado/nombre-repo",
     linkLabel: "Ver GitHub",
-    linkAlt: "https://mi-demo.com",     // dejar "" si no hay demo
-    linkAltLabel: "Ver demo"
+    linkAlt: "",
+    linkAltLabel: "",
   },
 
   ════════════════════════════════════════════════════════════ */

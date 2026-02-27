@@ -216,27 +216,19 @@ body::before {
 .nav__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;   /* links centrados */
+  position: relative;
   height: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-.nav__logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--text-1);
-  transition: color 0.2s;
-}
-.nav__logo:hover { color: var(--accent); }
-.nav__logo-bracket { color: var(--accent); }
-
+/* Links centrados — ocultos en mobile */
 .nav__menu {
   display: none;
   gap: 40px;
+  align-items: center;
 }
 
 .nav__link {
@@ -264,6 +256,33 @@ body::before {
 .nav__link:hover { color: var(--text-1); }
 .nav__link:hover::after { width: 100%; }
 
+/* Toggle idioma + hamburguesa — siempre a la derecha */
+.nav__controls {
+  position: absolute;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botón de idioma */
+.lang-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  padding: 5px 11px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+.lang-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-08);
+}
+
 /* Hamburger */
 .nav__hamburger {
   display: flex;
@@ -289,7 +308,7 @@ body::before {
 .nav__hamburger.open .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav__hamburger.open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile menu open state */
+/* Menú mobile desplegado */
 .nav__menu.open {
   display: flex;
   flex-direction: column;
@@ -313,6 +332,10 @@ body::before {
   letter-spacing: 0.08em;
 }
 .nav__menu.open .nav__link:last-child { border-bottom: none; }
+
+/* ——— IDIOMA: ocultar contenido según lang activo ——— */
+[data-lang="es"] .lang-en { display: none; }
+[data-lang="en"] .lang-es { display: none; }
 
 /* ================================================================
    HERO
@@ -956,6 +979,242 @@ body::before {
 }
 
 /* ================================================================
+   MODAL DE DETALLE DE PROYECTO
+================================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4, 8, 15, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 880px;
+  max-height: 92vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow), 0 0 48px rgba(77, 184, 255, 0.08);
+  transform: scale(0.96) translateY(8px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.open .modal {
+  transform: scale(1) translateY(0);
+}
+
+/* Corner markers heredados del blueprint card */
+.modal .bp-corner { z-index: 5; }
+
+/* Botón cerrar */
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-2);
+  font-size: 0.9rem;
+  background: var(--bg-card);
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+.modal__close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-08);
+}
+
+/* Galería */
+.modal__gallery {
+  position: relative;
+  width: 100%;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border-2);
+  flex-shrink: 0;
+}
+.modal__gallery.hidden { display: none; }
+
+.modal__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 14, 26, 0.82);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-1);
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+}
+.modal__nav:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.modal__prev { left: 10px; }
+.modal__next { right: 10px; }
+.modal__nav.hidden { display: none; }
+
+.modal__dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.modal__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-3);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  padding: 0;
+}
+.modal__dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+/* Contenido del modal */
+.modal__body {
+  padding: 24px 28px 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  padding-right: 36px;
+}
+
+.modal__desc {
+  border-top: 1px solid var(--border-2);
+  padding-top: 16px;
+  margin-bottom: 20px;
+}
+.modal__desc p {
+  font-size: 0.92rem;
+  color: var(--text-2);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.modal__desc p:last-child { margin-bottom: 0; }
+
+.modal__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid var(--border-2);
+  padding-top: 20px;
+}
+
+/* Desktop: galería a la izquierda, contenido a la derecha */
+@media (min-width: 640px) {
+  .modal {
+    flex-direction: row;
+    max-height: 82vh;
+  }
+  .modal__gallery {
+    flex: 0 0 52%;
+    border-bottom: none;
+    border-right: 1px solid var(--border-2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .modal__gallery.hidden {
+    display: none;
+  }
+  .modal__img {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 260px;
+    max-height: 82vh;
+    object-fit: cover;
+  }
+  .modal__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px;
+  }
+  .modal__title {
+    padding-right: 0;
+  }
+}
+
+/* Botón "Ver detalles" en las tarjetas */
+.project-card__detail-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  color: var(--text-2);
+  border: 1px solid var(--border-2);
+  padding: 7px 16px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+}
+.project-card__detail-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-08);
+}
+
+/* ================================================================
    SCROLL REVEAL ANIMATIONS
 ================================================================ */
 [data-reveal] {
@@ -1002,6 +1261,10 @@ body::before {
   }
   .nav__hamburger {
     display: none;
+  }
+  /* En desktop, el toggle queda solo a la derecha */
+  .nav__controls {
+    gap: 0;
   }
 
   .hero__inner {
