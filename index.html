@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Federico Ariel Casado — Ingeniero Civil, Python & Análisis de Datos">
+  <title>Federico Ariel Casado — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVEGACIÓN
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">
+        <span class="nav__logo-bracket">[</span>FAC<span class="nav__logo-bracket">]</span>
+      </a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about"    class="nav__link">Sobre mí</a></li>
+        <li><a href="#stack"    class="nav__link">Stack</a></li>
+        <li><a href="#projects" class="nav__link">Proyectos</a></li>
+        <li><a href="#contact"  class="nav__link">Contacto</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+
+      <div class="hero__text">
+        <div class="hero__eyebrow">
+          <!-- EDITAR: tu título profesional -->
+          <span class="tag">// INGENIERO CIVIL &amp; DATA ANALYST</span>
+        </div>
+        <h1 class="hero__name">
+          Federico<br>
+          Ariel <span class="text-accent">Casado</span>
+        </h1>
+        <!-- EDITAR: tu subtítulo -->
+        <p class="hero__subtitle">Ingeniería Estructural · Python · Análisis de Datos</p>
+        <!-- EDITAR: tu descripción personal -->
+        <p class="hero__desc">
+          Construyo soluciones en la intersección entre la ingeniería civil
+          y el análisis computacional. Datos que informan decisiones de diseño.
+          Código que automatiza procesos de cálculo.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary">Ver proyectos</a>
+          <a href="#contact"  class="btn btn--outline">Contacto</a>
+        </div>
+      </div>
+
+      <div class="hero__card-wrap">
+        <div class="blueprint-card">
+          <div class="bp-corner bp-tl"></div>
+          <div class="bp-corner bp-tr"></div>
+          <div class="bp-corner bp-bl"></div>
+          <div class="bp-corner bp-br"></div>
+
+          <div class="bp-header">
+            <span class="bp-label">PERFIL TÉCNICO</span>
+            <span class="bp-ref">REF: FAC-001</span>
+          </div>
+
+          <div class="bp-stats">
+            <!-- EDITAR: tus stats clave -->
+            <div class="bp-stat">
+              <span class="bp-stat__val">5+</span>
+              <span class="bp-stat__label">Años de exp.</span>
+            </div>
+            <div class="bp-stat">
+              <span class="bp-stat__val">20+</span>
+              <span class="bp-stat__label">Proyectos</span>
+            </div>
+            <div class="bp-stat">
+              <span class="bp-stat__val">12+</span>
+              <span class="bp-stat__label">Herramientas</span>
+            </div>
+            <div class="bp-stat">
+              <span class="bp-stat__val">∞</span>
+              <span class="bp-stat__label">Café consumido</span>
+            </div>
+          </div>
+
+          <div class="bp-divider"></div>
+
+          <div class="bp-tags">
+            <!-- EDITAR: tus áreas de expertise -->
+            <span class="bp-tag">Estructuras</span>
+            <span class="bp-tag">Python</span>
+            <span class="bp-tag">BIM</span>
+            <span class="bp-tag">Data</span>
+          </div>
+
+          <div class="bp-footer">
+            <!-- EDITAR: tu ciudad y año -->
+            <span>REV.01 · 2025 · BUENOS AIRES, AR</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero__scroll-hint">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE MÍ
+  ============================================================ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-num">01.</span>
+        <h2 class="section-title">Sobre mí</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="about__grid">
+
+        <div class="about__bio" data-reveal>
+          <!-- EDITAR: tu bio personal (2-3 párrafos) -->
+          <p>
+            Soy Ingeniero Civil egresado de [tu universidad], con especialización en
+            estructuras y una fuerte orientación hacia la automatización de procesos
+            mediante Python y análisis de datos. Me apasiona encontrar la intersección
+            entre la ingeniería tradicional y las herramientas computacionales modernas.
+          </p>
+          <p>
+            Trabajo en proyectos donde el rigor del cálculo estructural se combina con
+            el análisis de datos para tomar mejores decisiones de diseño. Creo que la
+            próxima generación de ingenieros debe dominar tanto la física como el código.
+          </p>
+          <div class="about__links">
+            <!-- EDITAR: reemplazar con la ruta a tu CV -->
+            <a href="assets/cv-federico-casado.pdf" class="btn btn--outline btn--sm" target="_blank">
+              ↓ Descargar CV
+            </a>
+          </div>
+        </div>
+
+        <div class="about__achievements" data-reveal>
+          <!-- EDITAR: tus 3 logros más importantes -->
+          <div class="achievement">
+            <div class="achievement__glyph">▲</div>
+            <div class="achievement__body">
+              <h4>Automatización de procesos</h4>
+              <p>Reduje en un 60% el tiempo de generación de reportes estructurales mediante scripts Python integrados con SAP2000.</p>
+            </div>
+          </div>
+          <div class="achievement">
+            <div class="achievement__glyph">◆</div>
+            <div class="achievement__body">
+              <h4>Análisis de datos aplicado</h4>
+              <p>Desarrollé dashboards de monitoreo estructural en tiempo real para proyectos de infraestructura de mediana complejidad.</p>
+            </div>
+          </div>
+          <div class="achievement">
+            <div class="achievement__glyph">●</div>
+            <div class="achievement__body">
+              <h4>Implementación BIM</h4>
+              <p>Lideré la adopción de workflows BIM con Revit y Dynamo, mejorando la coordinación multidisciplinaria en un 40%.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STACK TÉCNICO
+  ============================================================ -->
+  <section class="stack section" id="stack">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-num">02.</span>
+        <h2 class="section-title">Stack Técnico</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="stack__grid">
+
+        <!-- EDITAR: Grupo 1 — Ingeniería Civil -->
+        <div class="stack-group" data-reveal>
+          <div class="stack-group__head">
+            <svg class="stack-group__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <polygon points="12,2 22,20 2,20"/>
+            </svg>
+            <h3>Ingeniería Civil</h3>
+          </div>
+          <div class="stack-group__items">
+            <div class="stack-pill">AutoCAD</div>
+            <div class="stack-pill">Revit</div>
+            <div class="stack-pill">SAP2000</div>
+            <div class="stack-pill">ETABS</div>
+            <div class="stack-pill">Civil 3D</div>
+            <div class="stack-pill">Navisworks</div>
+          </div>
+        </div>
+
+        <!-- EDITAR: Grupo 2 — Python -->
+        <div class="stack-group" data-reveal>
+          <div class="stack-group__head">
+            <svg class="stack-group__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <polyline points="16,18 22,12 16,6"/>
+              <polyline points="8,6 2,12 8,18"/>
+            </svg>
+            <h3>Python</h3>
+          </div>
+          <div class="stack-group__items">
+            <div class="stack-pill">Pandas</div>
+            <div class="stack-pill">NumPy</div>
+            <div class="stack-pill">Matplotlib</div>
+            <div class="stack-pill">Selenium</div>
+            <div class="stack-pill">FastAPI</div>
+            <div class="stack-pill">Dynamo</div>
+          </div>
+        </div>
+
+        <!-- EDITAR: Grupo 3 — Data & Análisis -->
+        <div class="stack-group" data-reveal>
+          <div class="stack-group__head">
+            <svg class="stack-group__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            <h3>Data &amp; Análisis</h3>
+          </div>
+          <div class="stack-group__items">
+            <div class="stack-pill">Power BI</div>
+            <div class="stack-pill">SQL</div>
+            <div class="stack-pill">Excel Avanzado</div>
+            <div class="stack-pill">QGIS</div>
+            <div class="stack-pill">Tableau</div>
+            <div class="stack-pill">Git</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROYECTOS
+  ============================================================ -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-num">03.</span>
+        <h2 class="section-title">Proyectos</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="projects__filters" data-reveal>
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+        <button class="filter-btn" data-filter="autocad">AutoCAD</button>
+        <button class="filter-btn" data-filter="revit">Revit</button>
+        <button class="filter-btn" data-filter="data">Data</button>
+      </div>
+
+      <div class="projects__grid" id="projectsGrid"></div>
+      <div class="projects__empty" id="projectsEmpty" style="display:none">
+        <span>No hay proyectos en esta categoría aún.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACTO
+  ============================================================ -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-num">04.</span>
+        <h2 class="section-title">Contacto</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="contact__inner" data-reveal>
+        <!-- EDITAR: tu frase de llamada a la acción -->
+        <p class="contact__lead">
+          ¿Tenés un proyecto en mente o querés colaborar?<br>
+          <span class="text-accent">Hablemos.</span>
+        </p>
+
+        <div class="contact__links">
+
+          <!-- EDITAR: tu email -->
+          <a href="mailto:tu@email.com" class="contact-link">
+            <div class="contact-link__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-link__text">
+              <span class="contact-link__label">Email</span>
+              <!-- EDITAR: tu email visible -->
+              <span class="contact-link__val">tu@email.com</span>
+            </div>
+          </a>
+
+          <!-- EDITAR: tu URL de LinkedIn -->
+          <a href="https://linkedin.com/in/federicoarielcasado" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="contact-link__text">
+              <span class="contact-link__label">LinkedIn</span>
+              <span class="contact-link__val">/in/federicoarielcasado</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/federicoarielcasado" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+            </div>
+            <div class="contact-link__text">
+              <span class="contact-link__label">GitHub</span>
+              <span class="contact-link__val">/federicoarielcasado</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__copy">Federico Ariel Casado · <span id="year"></span></span>
+      <span class="footer__mono">Buenos Aires, Argentina</span>
+    </div>
+  </footer>
+
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
